@@ -126,4 +126,5 @@ export OPENAI_API_KEY="你的 Token"
 - [国内接入 ChatGPT / OpenAI API 完整教程](gpt-api-china.md)
 - [GPT-5.6 API 国内接入教程](gpt-5-6-api.md)
 - [没有 ChatGPT / OpenAI 账号怎么使用 GPT API](no-openai-account.md)
+- [Claude 中转、镜像站和 Claude 充值代充对比](claude-recharge-stable.md)：只要 Claude 网页版 / Claude Code 订阅时的稳定方案
 - [返回项目首页](../README.md)

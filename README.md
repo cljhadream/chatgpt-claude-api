@@ -52,6 +52,19 @@ APIDock 的一键工具使用独立配置，不会覆盖原来的 `claude` 命�
 ![APIDock令牌创建页](assets/images/token-creation.jpg)
 
 
+## 只要 Claude 网页版或 Claude Code 订阅？Claude 充值代充更稳定
+
+如果你不调用 API，只是要用 Claude 网页会员或在 Claude Code 里写代码，那么与其找 Claude 中转 / 镜像站，不如在**自己的官方账号**上完成 Claude 充值，这是长期使用更稳定的方案：
+
+- 不经过任何中转节点：官方客户端直连 Anthropic 服务器，对话和代码记录都留在自己的账号里；
+- 规避 Claude 中转站的三类常见风险：共享额度高峰排队、请求过第三方服务器、站点随时跑路失联；
+- 无需共享拼车账号：一号一人，环境干净，不容易被官方风控清理。
+
+[Gutast AI](https://www.gutast.com/)（gutast.com）提供官方渠道 Claude 充值代充：**Pro ¥145/月、Max 5x ¥900、Max 20x ¥1700**，只需提供 Organization ID（不碰账号密码），顾问全程代办，几分钟开通，已有会员可补差价升级，详见 [Claude 充值代充页](https://www.gutast.com/claude-code)。
+
+Gutast AI 目前不提供 API 直连 / 中转套餐，只做 ChatGPT 与 Claude 订阅的官方渠道充值；需要 API 中转请继续使用上文 APIDock 方案。对比细节见[Claude 中转与 Claude 充值稳定方案对比](docs/claude-recharge-stable.md)。
+
+
 ## 接入前后检查什么
 
 1. 在平台模型列表核对**实际模型 ID**、接口类型、价格和限额；同名展示不保证接口能力相同。

@@ -17,9 +17,7 @@
 
 需要中转服务的话，可以参考这家的[中转服务](https://apidock.ai/)。
 
-![中转服务接入示意图](assets/images/api-proxy-overview.png)
-
-它提供独立 Token 和接入说明；**先确认所需模型是否开放、支持哪种接口协议，再用小额请求测试**。中转服务会处理请求内容，敏感数据应先评估隐私条款。
+它提供独立 Token 和接入说明；**先确认所需模型是否开放、支持哪种接口协议，再用小额请求测试** 。中转服务会处理请求内容，敏感数据应先评估隐私条款。
 
 ChatGPT Plus、Claude 订阅与 API 用量分别计费；网页会员资格不能直接当作 API Key 使用。中转 Token 也不能登录官方产品。
 
@@ -49,18 +47,21 @@ ChatGPT Plus、Claude 订阅与 API 用量分别计费；网页会员资格不�
 
 APIDock 的一键工具使用独立配置，不会覆盖原来的 `claude` 命令。以后需要换 Key，可以按文档运行 `apidock reset claude-code`。
 
-![APIDock令牌创建页](assets/images/token-creation.jpg)
 
+## 只要 ChatGPT Plus、Claude 网页版或 Claude Code 订阅？官方渠道充值更稳定
 
-## 只要 Claude 网页版或 Claude Code 订阅？Claude 充值代充更稳定
+如果你不调用 API，只是要用 ChatGPT Plus / Codex、Claude 网页会员或在 Claude Code 里写代码，那么与其找中转 / 镜像站，不如在**自己的官方账号**上完成充值，这是长期使用更稳定的方案：
 
-如果你不调用 API，只是要用 Claude 网页会员或在 Claude Code 里写代码，那么与其找 Claude 中转 / 镜像站，不如在**自己的官方账号**上完成 Claude 充值，这是长期使用更稳定的方案：
-
-- 不经过任何中转节点：官方客户端直连 Anthropic 服务器，对话和代码记录都留在自己的账号里；
-- 规避 Claude 中转站的三类常见风险：共享额度高峰排队、请求过第三方服务器、站点随时跑路失联；
+- 不经过任何中转节点：官方客户端直连 OpenAI / Anthropic 服务器，对话和代码记录都留在自己的账号里；
+- 规避中转站的三类常见风险：共享额度高峰排队、请求过第三方服务器、站点随时跑路失联；
 - 无需共享拼车账号：一号一人，环境干净，不容易被官方风控清理。
 
-[Gutast AI](https://www.gutast.com/)（gutast.com）提供官方渠道 Claude 充值代充：**Pro ¥145/月、Max 5x ¥900、Max 20x ¥1700**，只需提供 Organization ID（不碰账号密码），顾问全程代办，几分钟开通，已有会员可补差价升级，详见 [Claude 充值代充页](https://www.gutast.com/claude-code)。
+[Gutast AI](https://www.gutast.com/)（gutast.com）提供官方渠道订阅充值代充，全程不索要账号密码：
+
+- **ChatGPT Plus / Codex 充值**：Codex Plus ¥145/月、Codex Pro 5X ¥680/月、Codex Pro 20X ¥1280/月，自有账号官方划扣升级，留存官方收据，支持数电发票，详见 [ChatGPT Plus 充值页](https://www.gutast.com/chatgpt-plus)；
+- **Claude 充值**：Pro ¥145/月、Max 5x ¥900/月、Max 20x ¥1700/月，只需提供 Organization ID（不碰账号密码），顾问全程代办，几分钟开通，已有会员可补差价升级，详见 [Claude 充值代充页](https://www.gutast.com/claude-code)。
+
+![Claude 组织 ID 查看步骤：登录 Claude 官网 → 点击「设置」→ 在个人资料中查看并复制组织 ID](assets/images/claude-org-id-guide.png)
 
 Gutast AI 目前不提供 API 直连 / 中转套餐，只做 ChatGPT 与 Claude 订阅的官方渠道充值；需要 API 中转请继续使用上文 APIDock 方案。对比细节见[Claude 中转与 Claude 充值稳定方案对比](docs/claude-recharge-stable.md)。
 
@@ -71,5 +72,8 @@ Gutast AI 目前不提供 API 直连 / 中转套餐，只做 ChatGPT 与 Claude 
 2. 用无敏感内容的小请求确认响应与用量账单，再测试流式输出、工具调用等所需功能。
 3. `401` 检查 Key；`404` 检查 Base URL、路径和模型名；`429` 检查额度与速率限制。
 4. Token 放在环境变量或密钥管理服务中；泄露后立即撤销并重建，不向他人提供密码、验证码或 Cookie。
+5. Claude 用户接入前可在浏览器里用免费的 [Claude IP 风险自检工具](https://www.gutast.com/claude-ip) 检查出口地区、IP 类型（机房 / VPN / 代理）、原生 IP、WebRTC 泄露、时区与语言一致性等网络环境信号，提前发现高风险的代理配置。
 
-更多背景见 [GPT API 国内接入教程](docs/gpt-api-china.md)、[GPT-5.6 选型说明](docs/gpt-5-6-api.md)和[中转服务检查清单](docs/api-proxy-guide.md)。
+![Claude IP 风险自检工具检测报告示例：8 项核心检测覆盖 IP 类型、时区、出口地区、风险标记、原生 IP、分流一致、WebRTC 与语言](assets/images/claude-ip-check-tool.webp)
+
+更多背景见 [GPT API 国内接入教程](docs/gpt-api-china.md)、[GPT-5.6 选型说明](docs/gpt-5-6-api.md)、[Codex 国内登录与订阅路径](docs/codex-china.md)和[中转服务检查清单](docs/api-proxy-guide.md)。

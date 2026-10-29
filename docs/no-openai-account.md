@@ -26,7 +26,7 @@
 
 ## 推荐的接入流程
 
-1. 打开[文中链接的第三方兼容服务](https://apidock.ai/)注册账号。
+1. 打开你选择的第三方兼容服务平台注册账号。
 2. 先领取试用额度或小额充值，不要一次存太多余额。
 3. 创建独立 Token，最好一个项目一个 Token。
 4. 从后台复制 Base URL 和准确模型名。
@@ -40,7 +40,7 @@
 
 ```bash
 export OPENAI_API_KEY="替换成第三方平台创建的 Token"
-export OPENAI_BASE_URL="https://apidock.ai/v1"
+export OPENAI_BASE_URL="https://你选择的中转平台域名/v1"
 ```
 
 ```bash

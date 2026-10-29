@@ -37,7 +37,7 @@
 - `api_key`：平台创建的 Token；
 - `model`：平台实际开放的模型名。
 
-我自己使用的是[文中链接的第三方兼容服务](https://apidock.ai/)。OpenAI SDK 改一下 Base URL 就能接入，国内付款也更方便。模型、接口和价格可能调整，正式跑量前以后台实时列表为准。
+如果官方付款不便，可以用口碑较好的第三方兼容服务。OpenAI SDK 改一下 Base URL 就能接入，国内付款也更方便。模型、接口和价格可能调整，正式跑量前以后台实时列表为准。
 
 ## Python 调用 GPT-5.6
 
@@ -83,7 +83,7 @@ model="gpt-5.6-sol"
 
 ```bash
 export OPENAI_API_KEY="替换成你的 Token"
-export OPENAI_BASE_URL="https://apidock.ai/v1"
+export OPENAI_BASE_URL="https://你选择的中转平台域名/v1"
 ```
 
 ```bash

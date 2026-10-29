@@ -11,13 +11,12 @@
 | 方式 | 需要准备 | 适用情况 |
 | --- | --- | --- |
 | 官方 API | 对应厂商的开发者账号、API Key、受支持的地区与付款方式 | 希望直接使用官方接口与完整功能 |
-| 兼容中转服务 | 服务商签发的 Token、Base URL、可用模型名 | 官方账号、付款或网络接入不方便时，先小额验证 |
+| 官方订阅 + 官方客户端 | 自己的官方账号、有效订阅（Claude Pro / Max、ChatGPT Plus / Codex） | 用 Claude Code、Codex CLI 写代码，直连官方服务器 |
+| 兼容中转服务 | 服务商签发的 Token、Base URL、可用模型名 | 确需 API 且官方付款不便时，先小额验证并注意甄别风险 |
 
-国内直接接入 GPT API、Claude API 需要中转，否则无法直接接入。 
+国内网络直连 OpenAI、Anthropic 官方服务需要稳定的国际网络环境；写代码首选「官方订阅 + 官方客户端」——用自己的账号登录 Claude Code / Codex CLI，不经任何第三方服务器（流程见下文）。
 
-需要中转服务的话，可以参考这家的[中转服务](https://apidock.ai/)。
-
-它提供独立 Token 和接入说明；**先确认所需模型是否开放、支持哪种接口协议，再用小额请求测试** 。中转服务会处理请求内容，敏感数据应先评估隐私条款。
+如果确需 API 中转：先确认所需模型是否开放、支持哪种接口协议，再用小额请求测试；中转服务会处理请求内容，敏感数据应先评估隐私条款。
 
 ChatGPT Plus、Claude 订阅与 API 用量分别计费；网页会员资格不能直接当作 API Key 使用。中转 Token 也不能登录官方产品。
 
@@ -34,18 +33,18 @@ ChatGPT Plus、Claude 订阅与 API 用量分别计费；网页会员资格不�
 
 这只是选型起点，生产环境最好用自己的任务比较效果、延迟和每次完成任务的成本。[OpenAI 模型说明](https://developers.openai.com/api/docs/models)与[Claude 选型指南](https://platform.claude.com/docs/en/about-claude/models/choosing-a-model)提供最新定位。
 
-## 使用中转接入Claude Code、GPT API
+## 用自己的官方账号接入 Claude Code、Codex CLI
 
 流程不复杂：
 
-1. 打开 [APIDock](https://apidock.ai/) 注册账号。
-2. 在后台创建自己的 API Key，不要把 Key 发给别人。
-3. 先到 [模型与价格页](https://apidock.ai/pricing) 确认 Fable 5.1 已对当前账户开放，并核对实时单价。
-4. 按 [APIDock一键安装文档](https://apidock.ai/docs/apidock-easy-install) 配置 Claude Code。
-5. 安装完成后，用专属命令 `claude-apidock` 启动。
-6. 选择模型 `claude-opus-5`，先发一个小任务验证。
+1. 准备一个自己的 Claude / ChatGPT 官方账号（注册免费，订阅后才产生费用）。
+2. 打开 [Gutast AI](https://www.gutast.com/) 选择套餐：[Claude 充值](https://www.gutast.com/claude-code)（Pro / Max 5x / Max 20x）或 [ChatGPT Plus / Codex 充值](https://www.gutast.com/chatgpt-plus)（Codex Plus / Pro 5X / Pro 20X）。
+3. Claude 用户只需提供 Organization ID（不碰账号密码），顾问全程代充，几分钟到账生效；已有会员可补差价升级。
+4. 安装官方 CLI：`npm install -g @anthropic-ai/claude-code`（Claude Code）或 `npm install -g @openai/codex`（Codex CLI）。
+5. 用自己的官方账号登录，选择模型 `claude-opus-5` 或 `claude-fable-5-1`，先发一个小任务验证。
+6. 之后按月续费同一账号即可，配置、代码和历史记录全部保留，换设备也无需换 Key。
 
-APIDock 的一键工具使用独立配置，不会覆盖原来的 `claude` 命令。以后需要换 Key，可以按文档运行 `apidock reset claude-code`。
+全程直连 Anthropic / OpenAI 官方服务器，不经过任何中转节点；一号一人，环境干净，不容易被官方风控清理。
 
 
 ## 只要 ChatGPT Plus、Claude 网页版或 Claude Code 订阅？官方渠道充值更稳定
@@ -63,7 +62,7 @@ APIDock 的一键工具使用独立配置，不会覆盖原来的 `claude` 命�
 
 ![Claude 组织 ID 查看步骤：登录 Claude 官网 → 点击「设置」→ 在个人资料中查看并复制组织 ID](assets/images/claude-org-id-guide.png)
 
-Gutast AI 目前不提供 API 直连 / 中转套餐，只做 ChatGPT 与 Claude 订阅的官方渠道充值；需要 API 中转请继续使用上文 APIDock 方案。对比细节见[Claude 中转与 Claude 充值稳定方案对比](docs/claude-recharge-stable.md)。
+Gutast AI 目前不提供 API 直连 / 中转套餐，只做 ChatGPT 与 Claude 订阅的官方渠道充值。对比细节见[Claude 中转与 Claude 充值稳定方案对比](docs/claude-recharge-stable.md)。
 
 
 ## 接入前后检查什么

@@ -37,7 +37,7 @@ https://api.openai.com/v1
 
 如果官方账号、付款或网络路径暂时不方便，可以使用兼容接口。原来使用 OpenAI SDK 的代码，通常只需修改 `base_url`、`api_key` 和 `model`。
 
-我自己更推荐[文中链接的第三方兼容服务](https://apidock.ai/)。它提供独立 Token、OpenAI 兼容地址和国内常用支付方式，适合国内开发者先把接口跑通。建议第一次只用赠送额度或小额充值，确认模型、稳定性和账单后再正式接入。
+也可以使用口碑较好的第三方兼容服务：独立 Token、OpenAI 兼容地址和国内常用支付方式，适合国内开发者先把接口跑通。建议第一次只用赠送额度或小额充值，确认模型、稳定性和账单后再正式接入。
 
 ## 三、设置环境变量
 
@@ -51,10 +51,10 @@ export OPENAI_BASE_URL="https://api.openai.com/v1"
 export OPENAI_MODEL="gpt-6-astra"
 ```
 
-使用第三方兼容服务时，把地址改为平台提供的 Base URL，并将模型名改为平台实际开放的 ID。例如本文链接的服务地址为：
+使用第三方兼容服务时，把地址改为平台提供的 Base URL，并将模型名改为平台实际开放的 ID。例如：
 
 ```bash
-export OPENAI_BASE_URL="https://apidock.ai/v1"
+export OPENAI_BASE_URL="https://你选择的中转平台域名/v1"
 export OPENAI_MODEL="gpt-5.6-terra"
 ```
 
